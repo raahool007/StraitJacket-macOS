@@ -261,3 +261,80 @@ freepressjournal.in
 mid-day.com
 outlookindia.com
 indianewsstream.com
+
+# ============================================================
+# DNS-over-HTTPS (DoH) resolver endpoints
+# ------------------------------------------------------------
+# Browsers with "Secure DNS"/DoH on resolve names themselves over HTTPS,
+# bypassing the local sinkhole. Sinkholing the DoH SERVER hostnames makes those
+# lookups fail, so most browsers (in default "automatic" mode) fall back to the
+# system resolver and are filtered again. PARTIAL mitigation only: a browser set
+# to "strict" DoH, a hardcoded resolver IP, or a VPN still bypasses this. The
+# reliable fix is to disable Secure DNS in the child's browser.
+# ============================================================
+
+# --- Cloudflare ---
+cloudflare-dns.com
+mozilla.cloudflare-dns.com
+security.cloudflare-dns.com
+family.cloudflare-dns.com
+dns.cloudflare.com
+one.one.one.one
+
+# --- Google ---
+dns.google
+dns.google.com
+
+# --- Quad9 ---
+dns.quad9.net
+dns9.quad9.net
+dns10.quad9.net
+dns11.quad9.net
+dns12.quad9.net
+
+# --- OpenDNS / Cisco ---
+doh.opendns.com
+doh.familyshield.opendns.com
+doh.sandbox.opendns.com
+
+# --- AdGuard ---
+dns.adguard.com
+dns-family.adguard.com
+dns-unfiltered.adguard.com
+dns.adguard-dns.com
+family.adguard-dns.com
+unfiltered.adguard-dns.com
+
+# --- NextDNS ---
+dns.nextdns.io
+nextdns.io
+
+# --- CleanBrowsing ---
+doh.cleanbrowsing.org
+
+# --- Mullvad ---
+doh.mullvad.net
+dns.mullvad.net
+
+# --- ControlD ---
+dns.controld.com
+freedns.controld.com
+
+# --- DNS.SB ---
+doh.dns.sb
+dns.sb
+
+# --- Other public DoH resolvers ---
+doh.libredns.gr
+dnsforge.de
+dns.digitale-gesellschaft.ch
+doh.dnswarden.com
+doh.tiar.app
+doh.applied-privacy.net
+ordns.he.net
+dns.switch.ch
+doh.ffmuc.net
+dns.alidns.com
+
+# --- Firefox DoH canary (does not auto-resolve via sinkhole, listed for note) ---
+use-application-dns.net

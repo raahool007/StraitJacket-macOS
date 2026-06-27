@@ -1,3 +1,106 @@
-# Domains applied to the DNS sinkhole AND /etc/hosts but kept separate from the
-# curated blocklist for clarity (e.g. domains where IP-level blocking would risk
-# collateral damage). One domain per line.
+# StraitJacket search-engine blocklist — one domain per line.
+# Mirrored into BOTH the DNS sinkhole and /etc/hosts. Matching is EXACT, so on
+# macOS blocking google.com does NOT affect mail.google.com / drive.google.com
+# etc. (those are distinct hostnames). A "www." variant is added automatically.
+# Ported from the Windows StraitJacket (github.com/raahool007/StraitJacket).
+#
+# All mainstream search engines are blocked EXCEPT lite.duckduckgo.com, which is
+# intentionally NOT listed so it stays reachable as the one allowed text search.
+
+# --- Google search (Gmail/Drive/Maps live on other subdomains, unaffected) ---
+google.com
+google.co.uk
+google.ca
+google.com.au
+google.de
+google.fr
+google.es
+google.it
+google.nl
+google.com.br
+google.co.jp
+google.com.mx
+google.ru
+google.pl
+google.com.tr
+google.se
+google.ch
+google.be
+google.at
+google.ie
+google.co.za
+google.com.sg
+google.com.hk
+google.co.kr
+google.co.in
+google.com.ph
+google.com.vn
+google.com.eg
+images.google.com
+encrypted.google.com
+
+# --- Bing ---
+bing.com
+cn.bing.com
+
+# --- Yahoo search ---
+search.yahoo.com
+yahoo.com
+
+# --- DuckDuckGo (everything EXCEPT lite.duckduckgo.com) ---
+duckduckgo.com
+start.duckduckgo.com
+html.duckduckgo.com
+duck.com
+
+# --- Yandex ---
+yandex.com
+yandex.ru
+ya.ru
+yandex.com.tr
+yandex.kz
+yandex.by
+
+# --- Baidu / Sogou / Naver (CN/KR) ---
+baidu.com
+sogou.com
+so.com
+naver.com
+
+# --- Privacy / independent engines ---
+search.brave.com
+startpage.com
+ecosia.org
+qwant.com
+mojeek.com
+yep.com
+swisscows.com
+gibiru.com
+searchencrypt.com
+metager.org
+search.marginalia.nu
+presearch.com
+stract.com
+kagi.com
+
+# --- AI answer engines ---
+perplexity.ai
+you.com
+
+# --- Legacy / metasearch ---
+ask.com
+search.aol.com
+lycos.com
+dogpile.com
+metacrawler.com
+excite.com
+webcrawler.com
+search.com
+millionshort.com
+wiby.me
+
+# --- Common public SearXNG instances (not exhaustive) ---
+searx.be
+searx.tiekoetter.com
+searxng.site
+search.sapti.me

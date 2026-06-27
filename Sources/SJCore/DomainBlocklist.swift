@@ -42,15 +42,17 @@ public final class DomainBlocklist {
 
     public func removeAll() { domains.removeAll(keepingCapacity: true) }
 
-    /// True if `name` or any parent domain is in the set.
+    /// True if `name` is in the set (exact match).
+    ///
+    /// Matching is exact, mirroring the Windows StraitJacket: a `www.` variant
+    /// is added for each entry on insert, but subdomains are NOT implicitly
+    /// blocked. This is deliberate — suffix matching would make a search-engine
+    /// entry like `google.com` also blackhole `mail.google.com`, `drive.google.com`,
+    /// etc. Block specific subdomains by listing them explicitly (as the curated
+    /// lists do, e.g. `news.google.com`, `store.steampowered.com`).
     public func isBlocked(_ name: String) -> Bool {
-        guard var s = DomainBlocklist.normalize(name) else { return false }
-        while true {
-            if domains.contains(s) { return true }
-            guard let dot = s.firstIndex(of: ".") else { return false }
-            s = String(s[s.index(after: dot)...])
-            if s.isEmpty { return false }
-        }
+        guard let s = DomainBlocklist.normalize(name) else { return false }
+        return domains.contains(s)
     }
 
     /// Bulk-load from newline-delimited text. Lines may be bare domains or

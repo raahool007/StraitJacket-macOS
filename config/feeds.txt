@@ -1,6 +1,11 @@
 # Remote blocklist feeds — one URL per line. Downloaded at startup and every
 # config.feedUpdateHours. Plain domain lists and hosts-file format both work.
 # These feed the DNS sinkhole only (not /etc/hosts).
+# Edit with: sudo parentctl update-feeds (to re-download now).
 
-# StevenBlack — adult-only hosts list (~77k domains)
+# Adult / pornography (StevenBlack porn-only, ~77k domains, well maintained)
 https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn-only/hosts
+
+# For much broader coverage (~500k domains) you can ALSO enable the line below,
+# but note it makes the data set large and can slow DNS resolution:
+# https://blocklistproject.github.io/Lists/porn.txt
